@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Denied</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      color: #000000; /* Red color for emphasis */
+    }
+
+    p {
+      color: #333;
+    }
+
+    div {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 400px;
+    }
+
+    a {
+      color: #0070c9; /* Blue color for the hyperlink */
+      text-decoration: none; /* Remove the underline */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="./img/reject/main.png" width="70">
+    <h1>Error_403</h1>
+    <p>您被我们拒绝访问，更多信息请访问<br><a href="https://error403.otisliu.top">error403.otisliu.top</a></p>
+    <p>您的IP地址： <span id="userIP"></span></p>
+    <p>屏幕分辨率： <span id="screenResolution"></span></p>
+    <p>用户代理信息： <span id="userAgent"></span></p>
+    <p>浏览器窗口大小： <span id="windowSize"></span></p>
+  </div>
+
+  <script>
+    // JavaScript code to display user's IP address
+    document.getElementById('userIP').innerText = getUserIP();
+
+    // Function to get user's IP address
+    function getUserIP() {
+      // Replace this with your actual IP fetching mechanism
+      // For demonstration purposes, returning a placeholder value
+      return "127.0.0.1";
+    }
+
+    // Display screen resolution
+    document.getElementById('screenResolution').innerText = window.screen.width + 'x' + window.screen.height;
+
+    // Display user agent information
+    document.getElementById('userAgent').innerText = navigator.userAgent;
+
+    // Display browser window size
+    document.getElementById('windowSize').innerText = window.innerWidth + 'x' + window.innerHeight;
+
+    // Display local storage information
+    document.getElementById('localStorage').innerText = localStorage.getItem('key');
+  </script>
+</body>
+</html>
