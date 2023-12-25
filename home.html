@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光遇身高查询</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; 
+    }
+
+    #queryInput {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+
+    #queryInput:focus {
+      border-color: #0070c9;
+    }
+
+    #searchContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    #searchButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0070c9;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #searchButton:hover {
+      background-color: #005187;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box; /* 使边框不影响元素宽度 */
+    }
+  </style>
+</head>
+<body>
+<h1>授权用户：闲鱼-光遇的富贵</h1>
+<h1>gydfg-xy-sky.otisliu.top</h1>
+
+<input type="text" id="queryInput" placeholder="输入光遇长字段ID">
+
+<div id="searchContainer">
+  <button id="searchButton" onclick="callApi()">查询</button>
+  <div id="result"></div>
+</div>
+<div>
+    <p>Scale:体型值(S)<br>
+        Height:身高值(H)<br>
+        Current.height:当前身高<br>
+        Max.Height:最大身高值<br>
+        Min.Height:最小身高值<br>
+        <br>
+        adorn:装扮数据(所有当前穿戴装扮）<br>
+        action:站姿和叫声<br>
+        </p>
+        <br>
+        <hr>
+</div>
+<br>
+<div>
+    <p>Copyright&copy;2024 OtisLiuSupport-SkyData</p>
+    <p>邮箱：noreply@otisliu.top</p>
+</div>
+<script>
+  function callApi() {
+    const apiKey = 'lpL9BBgfd1iA5Mtx3vafC9tN83';
+    const longFieldID = document.getElementById('queryInput').value;
+    const apiUrl = `https://gy.t1qq.com/api/sky/sc/sg?key=${apiKey}&cx=${longFieldID}`;
+
+    // 发起GET请求
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // 显示返回的数据
+        displayResult(data);
+      })
+      .catch(error => {
+        console.error('发生错误:', error);
+      });
+  }
+
+  function displayResult(data) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+  }
+</script>
+
+</body>
+</html>
