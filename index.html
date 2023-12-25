@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网站通知-OLS</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .notification-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .action-button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+      display: block; /* 修改为块级元素，使按钮垂直排列 */
+    }
+
+    .accept-button {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .accept-button:hover {
+      background-color: #0056b3;
+    }
+
+    .decline-button {
+      background-color: #ccc; /* 将颜色修改为灰色 */
+      color: #333; /* 将颜色修改为黑色 */
+      margin-top: 10px; /* 修改上边距，使按钮垂直排列 */
+    }
+
+    .decline-button:hover {
+      background-color: #bbb; /* 将悬停颜色修改为深灰色 */
+    }
+  </style>
+</head>
+<body>
+  <div class="notification-container">
+    <img src="./img/index/book.pages.png" width="50">
+    <h1>知识产权通知</h1>
+    <p>商标、服务商标、商品名称和内容是宝贵的资产。遵循这些准则，您可以帮助我们保护宝贵的知识产权，并加强我们的品牌身份。通过使用知识产权的全部或部分使用，您承认OLS是该知识产权的唯一所有者，并承诺您不会干涉我们在商标中的权利，包括挑战使用、注册或注册此类知识产权的申请，单独或与其他知识产权结合使用，在世界任何地方，并且您不会伤害、滥用或声明任何知识产权。使用知识产权的任何部分所产生的商誉仅适用于OLS的利益，并属于OLS。除本准则明确允许的有限使用权外，本协议不以暗示或其他方式授予任何其他权利。如果您对这些指南有任何疑问，请与您的代表联系，或向我们知识产权部部提交您的查询。</p>
+    <a href="./home.html" class="action-button accept-button">我同意</a>
+    <a href="./reject.html" class="action-button decline-button">我不同意</a>
+    <br>
+  </div>
+</body>
+</html>
