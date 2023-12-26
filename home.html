@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>光遇身高查询</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    #queryInput {
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #d1d1d1;
+      border-radius: 25px;
+      transition: border-color 0.3s ease;
+      outline: none;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    #queryInput:focus {
+      border-color: #0070c9;
+    }
+
+    #searchContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #searchButton {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #0070c9;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    #searchButton:hover {
+      background-color: #005187;
+    }
+
+    #result {
+      padding: 20px;
+      border: 1px solid #d1d1d1;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    #result pre {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #d1d1d1;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<p>注意：为防止滥用，该网站于每过一段时间将更换一次域名。</p>
+<p>这是为信誉优良的各平台买家提供的自助查询通道，感谢您选择我们的产品。<br>为了可持续运行查询后希望您自觉前往闲鱼（OLSupport）购买身高查询商品。</p>
+<p>总商品网站：shop.otisliu.top</p>
+<input type="text" id="queryInput" placeholder="输入光遇长字段ID">
+
+<div id="searchContainer">
+  <button id="searchButton" onclick="callApi()">查询</button>
+  <div id="result"></div>
+</div>
+
+<div class="footer">
+    <p>Scale:体型值(S)<br>
+        Height:身高值(H)<br>
+        Current.height:当前身高<br>
+        Max.Height:最大身高值<br>
+        Min.Height:最小身高值<br>
+        <br>
+        adorn:装扮数据<br>
+        action:站姿和叫声<br>
+        </p>
+        <hr>
+    <p>Copyright&copy;2024 OtisLiuSupport-SkyData</p>
+    <p>邮箱：noreply@otisliu.top</p>
+    <p>闲鱼：OLSupport</p>
+</div>
+
+<script>
+  function callApi() {
+    const apiKey = 'lpL9BBgfd1iA5Mtx3vafC9tN83';
+    const longFieldID = document.getElementById('queryInput').value;
+    const apiUrl = `https://gy.t1qq.com/api/sky/sc/sg?key=${apiKey}&cx=${longFieldID}`;
+
+    // 发起GET请求
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // 显示返回的数据
+        displayResult(data);
+      })
+      .catch(error => {
+        console.error('发生错误:', error);
+      });
+  }
+
+  function displayResult(data) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+  }
+</script>
+
+</body>
+</html>
